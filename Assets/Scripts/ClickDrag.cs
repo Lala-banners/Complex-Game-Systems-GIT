@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ClickDrag : MonoBehaviour
 {
-    Vector3 screenPoint;
+    public float forceAmmount = 500;
+
+    Rigidbody dragObject;
     Vector3 offset;
-    public Transform dragObject;
+
+    Vector3 originalPosition;
+    float selectionDistance;
 
     private void Update()
     {
@@ -18,10 +22,15 @@ public class ClickDrag : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
-                dragObject = hit.transform;
-                //Gives direction to ray from click
-                offset = hit.transform.position - ray.origin;
+                selectionDistance = Vector3.Distance(ray.origin, hit.point);
+
+                dragObject = hit.rigidbody;
+                offset = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                                                        Input.mousePosition.y,
+                                                        selectionDistance));
+                originalPosition = hit.collider.transform.position;
             }
+
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -29,10 +38,28 @@ public class ClickDrag : MonoBehaviour
             dragObject = null;
         }
 
+    }
+
+    private void FixedUpdate()
+    {
         if (dragObject)
         {
-            dragObject.position = new Vector3(ray.origin.x + offset.x, dragObject.position.y, ray.origin.z + offset.z);
+            Vector3 mousePositionOffset = Camera.main.ScreenToWorldPoint(new Vector3
+                                                    (Input.mousePosition.x,
+                                                    Input.mousePosition.y,
+                                                    selectionDistance)) - originalPosition;
+
+            dragObject.velocity = (originalPosition + mousePositionOffset - dragObject.transform.position)
+                                    * forceAmmount * Time.deltaTime;
         }
     }
+
+    // OnMouseUp is called when the user has released the mouse button
+    private void OnMouseUp()
+    {
+        dragObject.AddForce(dragObject.velocity, ForceMode.Acceleration);
+    }
+
+
 
 }
