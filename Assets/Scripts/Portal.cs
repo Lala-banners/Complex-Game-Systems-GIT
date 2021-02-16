@@ -9,6 +9,8 @@ public class Portal : MonoBehaviour
 
     public bool isPortal; //for character to know its hit a portal
 
+    
+
     private void Start()
     {
         if (isPortal == true)

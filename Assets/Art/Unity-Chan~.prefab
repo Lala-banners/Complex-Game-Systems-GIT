@@ -2230,6 +2230,7 @@ GameObject:
   - component: {fileID: 2884218019290273458}
   - component: {fileID: 2884218018008117875}
   - component: {fileID: 2884218018008117876}
+  - component: {fileID: 3496031041044263907}
   m_Layer: 0
   m_Name: Unity-Chan~
   m_TagString: Untagged
@@ -2311,6 +2312,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3977733, y: 1.8482504, z: 0.62215406}
   m_Center: {x: 0.074578464, y: 0.8760867, z: -0.05300197}
+--- !u!114 &3496031041044263907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884218018142198033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e702e78d861134b8724062f819493d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2884218018142198033}
+  controller: {fileID: 0}
+  cam: {fileID: 0}
+  turnSmoothTime: 0.1
+  gravity: -9.81
+  playerVelocity: {x: 0, y: 0, z: 0}
+  keyInputs:
+    horizontal: 0
+    vertical: 0
 --- !u!1 &2884218018142198035
 GameObject:
   m_ObjectHideFlags: 0
