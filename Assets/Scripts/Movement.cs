@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -14,13 +12,13 @@ public class Movement : MonoBehaviour
     [SerializeField] private Vector3 playerVelocity;
     private Vector3 moveDir;
     private float speed = 5f;
-    public KeyInputs keyInputs;
+    private bool isGrounded;
+    public float horizontal; //horizontal movement value
+    public float vertical; //vertical movement value
 
-    [System.Serializable]
-    public struct KeyInputs
+    private void FixedUpdate()
     {
-        public float horizontal; //horizontal movement value
-        public float vertical; //vertical movement value
+        isGrounded = IsGrounded();
     }
 
     // Update is called once per frame
@@ -47,7 +45,7 @@ public class Movement : MonoBehaviour
 
     private void Move()
     {
-        Vector3 direction = new Vector3(keyInputs.horizontal, 0f, keyInputs.vertical).normalized;
+        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg
@@ -66,8 +64,9 @@ public class Movement : MonoBehaviour
 
     private void Direction()
     {
-        float horizontal = 0; //reset movement values
-        float vertical = 0;
+        //reset movement values
+        horizontal = 0; 
+        vertical = 0;
 
         //take key input and check if it matches any of these movement types in the dictionary
         //if a match is found, increase that direction
@@ -89,5 +88,19 @@ public class Movement : MonoBehaviour
         }
 
         moveDir = new Vector3(horizontal, 0f, vertical).normalized;
+    }
+
+    bool IsGrounded()
+    {
+        //debug raycast
+        Debug.DrawRay(transform.position, -Vector3.up * ((controller.height * 0.5f) * 1.1f), Color.red);
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+        RaycastHit hit;
+        if (Physics.SphereCast(transform.position, controller.radius, -Vector3.up, out hit, controller.bounds.extents.y + 0.1f - controller.bounds.extents.x, layerMask))
+        {
+            return true;
+        }
+        return false;
     }
 }

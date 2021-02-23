@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +6,6 @@ public class Portal : MonoBehaviour
     private Transform destination; //to shoot player into space
 
     public bool isPortal; //for character to know its hit a portal
-
-    
 
     private void Start()
     {
@@ -24,9 +20,14 @@ public class Portal : MonoBehaviour
     {
         //If player has collided with the portal, make player's position to the destination
         collision.transform.position = new Vector2(destination.position.x, destination.position.y);
-        SceneManager.LoadScene("Level1");
 
-        print("Unity-Chan is in space!");
+        if (collision.gameObject.tag == "Player")
+        {
+            SceneManager.LoadScene(1);
+            print("Jammo-Bot is in Space!");
+        }
+
+        
     }
 
 

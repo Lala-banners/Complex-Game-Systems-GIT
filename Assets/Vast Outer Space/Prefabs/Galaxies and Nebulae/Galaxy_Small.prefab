@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2390014}
   - component: {fileID: 622870652}
   - component: {fileID: 5250511047999046303}
-  - component: {fileID: 7973268414101718818}
   m_Layer: 0
   m_Name: Galaxy_Small
   m_TagString: Portal
@@ -113,16 +112,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &7973268414101718818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e6c654332868b54eb36f6250b865f36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPortal: 0
