@@ -52,12 +52,6 @@ public class ClickDrag : MonoBehaviour
         }
     }
 
-    // OnMouseUp is called when the user has released the mouse button
-    private void OnMouseUp()
-    {
-        //dragObject.AddForce(dragObject.velocity, ForceMode.Acceleration);
-    }
-
 
 
 }
