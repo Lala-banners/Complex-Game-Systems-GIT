@@ -17,14 +17,14 @@ public class Portal : MonoBehaviour
 
     // OnCollisionEnter is called when this collider/rigidbody has begun touching another rigidbody/collider
     private void OnCollisionEnter(Collision collision)
-    {
+    { 
         //If player has collided with the portal, make player's position to the destination
-        collision.transform.position = new Vector2(destination.position.x, destination.position.y);
+        //collision.transform.position = new Vector2(destination.position.x, destination.position.y);
 
         if (collision.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(1);
-            print("Jammo-Bot is in Space!");
+            //print("Jammo-Bot is in Space!");
         }
 
         

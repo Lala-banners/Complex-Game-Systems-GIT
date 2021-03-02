@@ -8,13 +8,18 @@ public class Movement : MonoBehaviour
     [SerializeField] private Transform cam;
     [SerializeField] private float turnSmoothTime = 0.1f;
     [SerializeField] private float gravity = -9.81f;
-    float turnSmoothVelocity;
-    [SerializeField] private Vector3 playerVelocity;
+    private float turnSmoothVelocity;
+    private Vector3 playerVelocity;
     private Vector3 moveDir;
     private float speed = 5f;
     private bool isGrounded;
     public float horizontal; //horizontal movement value
     public float vertical; //vertical movement value
+
+    private void Start()
+    {
+        
+    }
 
     private void FixedUpdate()
     {
@@ -70,22 +75,7 @@ public class Movement : MonoBehaviour
 
         //take key input and check if it matches any of these movement types in the dictionary
         //if a match is found, increase that direction
-        if (Input.GetKey(Keybinds.keys["Forward"]))
-        {
-            vertical++;
-        }
-        if (Input.GetKey(Keybinds.keys["Backwards"]))
-        {
-            vertical--;
-        }
-        if (Input.GetKey(Keybinds.keys["Right"]))
-        {
-            horizontal++;
-        }
-        if (Input.GetKey(Keybinds.keys["Left"]))
-        {
-            horizontal--;
-        }
+        
 
         moveDir = new Vector3(horizontal, 0f, vertical).normalized;
     }

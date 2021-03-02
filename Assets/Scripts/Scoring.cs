@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Scoring : MonoBehaviour
 {
@@ -8,13 +9,11 @@ public class Scoring : MonoBehaviour
 
     List<Joint> joints; //List of joints in the character
 
-    [SerializeField]
-    private float minForceForScore = 1000; //Minimum amount of force needed to get a score
+    [SerializeField] private float minForceForScore = 1000f; //Minimum amount of force needed to get a score
 
-    [SerializeField]
-    private float scoreMultiplier;
+    [SerializeField] private float scoreMultiplier;
 
-    public float currentScore = 0;
+    public int currentScore = 0;
 
 
     // Start is called before the first frame update
@@ -35,10 +34,9 @@ public class Scoring : MonoBehaviour
 
         if (appliedForce > minForceForScore) //If applied force is greater than the min force allowed for scoring
         {
-            currentScore += (appliedForce * scoreMultiplier * Time.deltaTime); //Current score plus/equal to applied force
-            scoreText.text = "Score: " + (int)currentScore; //Update the score text
+            float curScore = 0f;
+            currentScore = (int)((curScore) += appliedForce * scoreMultiplier * Time.deltaTime);
+            scoreText.text = "Score: " + currentScore.ToString(); //Update the score text
         }
-
-        Debug.Log(appliedForce);
     }
 }

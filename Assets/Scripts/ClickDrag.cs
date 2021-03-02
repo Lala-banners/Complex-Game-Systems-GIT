@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClickDrag : MonoBehaviour
 {
-    public float forceAmmount = 500;
+    [SerializeField] private float forceAmount = 500f;
 
     Rigidbody dragObject;
     Vector3 offset;
@@ -50,7 +48,7 @@ public class ClickDrag : MonoBehaviour
                                                     selectionDistance)) - originalPosition;
 
             dragObject.velocity = (originalPosition + mousePositionOffset - dragObject.transform.position)
-                                    * forceAmmount * Time.deltaTime;
+                                    * forceAmount * Time.deltaTime;
         }
     }
 
