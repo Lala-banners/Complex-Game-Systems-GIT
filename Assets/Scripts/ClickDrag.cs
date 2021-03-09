@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ClickDrag : MonoBehaviour
 {
+
     [SerializeField] private float forceAmount = 500f;
 
     Rigidbody dragObject;

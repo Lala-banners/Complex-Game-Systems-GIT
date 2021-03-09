@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &559975702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559975703}
+  m_Layer: 0
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &559975703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559975702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.88, z: 1.57}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6362176010712100045}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &20566503714967838
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +675,7 @@ GameObject:
   - component: {fileID: 6895063468843601483}
   - component: {fileID: 933154251365550621}
   - component: {fileID: 933154251365550620}
+  - component: {fileID: 3727837120601760860}
   m_Layer: 0
   m_Name: mixamorig:Hips
   m_TagString: Player
@@ -698,6 +729,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3727837120601760860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933154251365550623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f1cbe92ef31221489c927b3957cacbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hipsRB: {fileID: 933154251365550620}
 --- !u!1 &1011953518302416194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1877,7 +1921,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 8.869738e-11, y: 0.014378189, z: -0.000011300319}
+  m_ConnectedAnchor: {x: 0, y: 0.014378197, z: -0.000011306023}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2313,7 +2357,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000007654056, y: 0.007955144, z: -0.0000000059517147}
+  m_ConnectedAnchor: {x: -0.0000000039870938, y: 0.007955145, z: -6.4028227e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2454,7 +2498,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0067339404, y: 0.009820077, z: -0.0011584116}
+  m_ConnectedAnchor: {x: 0.006733928, y: 0.009820099, z: -0.0011584195}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -2859,7 +2903,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0067339404, y: 0.009820077, z: -0.0011584102}
+  m_ConnectedAnchor: {x: -0.006733928, y: 0.009820099, z: -0.0011584195}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -2969,7 +3013,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000000008934877, y: 0.006685854, z: 0.000000024796464}
+  m_ConnectedAnchor: {x: -6.111805e-10, y: 0.00668584, z: 0.0000000026775524}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -3141,7 +3185,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.004696438, y: -0.00009781867, z: 0.00006267283}
+  m_ConnectedAnchor: {x: 0.004696426, y: -0.00009780936, z: 0.00006266503}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -3801,7 +3845,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.004696438, y: -0.00009781867, z: 0.000062674226}
+  m_ConnectedAnchor: {x: -0.004696426, y: -0.00009780936, z: 0.00006266503}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -4083,7 +4127,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 8.869738e-11, y: 0.0042980984, z: -0.00016455137}
+  m_ConnectedAnchor: {x: 0, y: 0.0042980947, z: -0.00016455998}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -5435,7 +5479,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000007654056, y: 0.007955144, z: -0.0000000067084116}
+  m_ConnectedAnchor: {x: 0.0000000039870938, y: 0.007955145, z: -6.4028227e-10}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -5891,7 +5935,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.000000006140909, y: 0.006685854, z: 0.000000024680048}
+  m_ConnectedAnchor: {x: 6.111805e-10, y: 0.00668584, z: 0.0000000026775524}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -5935,7 +5979,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6362176010712100045}
   - component: {fileID: 7931301320426217181}
-  - component: {fileID: 3125064551406240693}
   m_Layer: 0
   m_Name: Jammo_Player
   m_TagString: Player
@@ -5956,6 +5999,7 @@ Transform:
   m_Children:
   - {fileID: 3245751187481573135}
   - {fileID: 397742561004907699}
+  - {fileID: 559975703}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -5972,19 +6016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceAmount: 500
---- !u!114 &3125064551406240693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7931301320426217182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7316b5842757e140a159e1bd42b90a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 1
 --- !u!1 &7937614412465990331
 GameObject:
   m_ObjectHideFlags: 0
