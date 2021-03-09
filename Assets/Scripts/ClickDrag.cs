@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class ClickDrag : MonoBehaviour
 {
-
     [SerializeField] private float forceAmount = 500f;
 
     Rigidbody dragObject;
@@ -13,6 +12,7 @@ public class ClickDrag : MonoBehaviour
 
     private void Update()
     {
+        #region Drag Bot
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0))
@@ -36,11 +36,12 @@ public class ClickDrag : MonoBehaviour
         {
             dragObject = null;
         }
-
+        #endregion
     }
 
     private void FixedUpdate()
     {
+        #region Drag Bot 2
         if (dragObject)
         {
             Vector3 mousePositionOffset = Camera.main.ScreenToWorldPoint(new Vector3
@@ -51,8 +52,6 @@ public class ClickDrag : MonoBehaviour
             dragObject.velocity = (originalPosition + mousePositionOffset - dragObject.transform.position)
                                     * forceAmount * Time.deltaTime;
         }
+        #endregion
     }
-
-
-
 }
