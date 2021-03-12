@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public Button play;
     public Button retry;
     public Button quit;
+    public GameObject startMenu;
 
     [Header("Game Over")]
     public GameObject gameOver;
@@ -24,6 +25,8 @@ public class UIManager : MonoBehaviour
     public void WinLevel()
     {
         winPanel.SetActive(true);
+        startMenu.SetActive(false);
+        gameOver.SetActive(false);
         Time.timeScale = 0;
         scoreText.text = score.ToString();
     }
@@ -39,19 +42,22 @@ public class UIManager : MonoBehaviour
 
     public void StartGame()
     {
+        startMenu.SetActive(false);
         gameOver.SetActive(false);
         winPanel.SetActive(false);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1;
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
+        startMenu.SetActive(false);
         gameOver.SetActive(false);
         winPanel.SetActive(false);
     }
 
-    public void Collectables()
+    public void UpdateScore()
     {
         score++;
         scoreText.text = score.ToString();
@@ -63,7 +69,7 @@ public class UIManager : MonoBehaviour
         //Collectables
         if(other.gameObject.tag == "Player")
         {
-
+            UpdateScore();
         }
     }
 
