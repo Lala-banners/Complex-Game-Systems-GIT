@@ -3013,7 +3013,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000000022264433, y: 0.006685851, z: 0.0000000020954758}
+  m_ConnectedAnchor: {x: -0.0000000036525312, y: 0.006685829, z: 0.0000000030267984}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -5935,7 +5935,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000000022264433, y: 0.006685851, z: 0.0000000020954758}
+  m_ConnectedAnchor: {x: 0.0000000036525312, y: 0.006685829, z: 0.0000000030267984}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -5979,6 +5979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6362176010712100045}
   - component: {fileID: 7931301320426217181}
+  - component: {fileID: 8457076757335127267}
   m_Layer: 0
   m_Name: Jammo_Player
   m_TagString: Player
@@ -6016,6 +6017,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceAmount: 500
+--- !u!114 &8457076757335127267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931301320426217182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 096a72504a1fec34bb40157423536017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7937614412465990331
 GameObject:
   m_ObjectHideFlags: 0

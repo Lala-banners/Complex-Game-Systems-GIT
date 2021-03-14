@@ -35,7 +35,8 @@ public class PlayerKiller : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            Destroy(other);
+            UIManager.manager.GameOver();
+            Destroy(other.gameObject);
             print("Player Dead");
         }
     }

@@ -1,10 +1,26 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager manager = null;
+
+    private void Awake()
+    {
+        if (manager == null)
+        {
+            manager = this;
+        }
+        else if (manager != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
     #region UI
     [Header("Win")]
     public TMP_Text scoreText;
@@ -13,66 +29,53 @@ public class UIManager : MonoBehaviour
     public GameObject collect;
 
     [Header("Main")]
-    public Button play;
-    public Button retry;
-    public Button quit;
     public GameObject startMenu;
 
     [Header("Game Over")]
     public GameObject gameOver;
+    public bool isGameOver = false;
     #endregion
 
     public void WinLevel()
     {
-        winPanel.SetActive(true);
-        startMenu.SetActive(false);
-        gameOver.SetActive(false);
-        Time.timeScale = 0;
-        scoreText.text = score.ToString();
-    }
-
-    // OnTriggerEnter is called when the Collider other enters the trigger
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Player")
+        if (score == 3) //Number of collectables and if won is true
         {
-            WinLevel();
+            isGameOver = false;
+            winPanel.SetActive(true);
+            startMenu.SetActive(false);
+            gameOver.SetActive(false);
+            scoreText.text = score.ToString();
         }
-    }
-
-    public void StartGame()
-    {
-        startMenu.SetActive(false);
-        gameOver.SetActive(false);
-        winPanel.SetActive(false);
-        SceneManager.LoadScene(1);
-        Time.timeScale = 1;
-    }
-
-    public void Retry()
-    {
-        SceneManager.LoadScene(1);
-        startMenu.SetActive(false);
-        gameOver.SetActive(false);
-        winPanel.SetActive(false);
     }
 
     public void UpdateScore()
     {
         score++;
+        scoreText.text = "Score: " + score.ToString();
+    }
+
+    public void Retry()
+    {
+        SceneManager.LoadScene(0);
+        startMenu.SetActive(false);
+        score = 0;
+        winPanel.SetActive(false);
+        gameOver.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        isGameOver = true;
+        gameOver.SetActive(true);
         scoreText.text = score.ToString();
     }
 
-    // OnTriggerEnter is called when the Collider other enters the trigger
-    private void OnTriggerEnter(Collider other)
+    public void QuitGame()
     {
-        //Collectables
-        if(other.gameObject.tag == "Player")
-        {
-            UpdateScore();
-        }
+        Debug.Log("Quitting Game");
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+#endif
+        Application.Quit();
     }
-
-
-
 }
